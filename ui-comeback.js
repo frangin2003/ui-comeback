@@ -6,6 +6,14 @@
         return;
     }
 
+    function indexOf(value, array) {
+        var i = 0, l = array.length;
+        for (; i < l; i = i + 1) {
+            if (equal(value, array[i])) return i;
+        }
+        return -1;
+    };
+
     var uiComeback = {
 
         tXAndtYs : function(args) {
