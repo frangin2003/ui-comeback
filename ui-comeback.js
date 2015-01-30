@@ -30,7 +30,7 @@
         return false;
     };
 
-    var uiComeback = {
+    window.UiComeback = {
 
         tXAndtYs : function(args) {
             args = $.extend(args, $.fn.uiComeback.defaults);
@@ -65,7 +65,7 @@
 
         var args = Array.prototype.slice.call(arguments, 0),
             opts,
-            uiComeback, method, value,
+            method, value,
             allowedMethods = [
                 "tXAndtYs", "scaleAndtYs"];
 
@@ -80,7 +80,7 @@
 
                 method=args[0];
 
-                value = uiComeback[method].apply(uiComeback, args.slice(1));
+                value = UiComeback[method].apply(UiComeback, args.slice(1));
 
                 if (indexOf(args[0], valueMethods) >= 0
                     || (indexOf(args[0], propertyMethods) && args.length == 1)) {
