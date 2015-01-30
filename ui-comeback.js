@@ -64,13 +64,11 @@
     $.fn.uiComeback = function () {
 
         var args = Array.prototype.slice.call(arguments, 0),
-            opts,
+            element = $(this), opts,
             method, value,
             allowedMethods = [
                 "tXAndtYs", "scaleAndtYs"];
                 
-        args.element = $(this);
-
         this.each(function () {
             if (typeof(args[0]) === "string") {
 
@@ -81,8 +79,11 @@
                 value = undefined;
 
                 method=args[0];
-
-                value = UiComeback[method].apply(UiComeback, args.slice(1));
+                
+                opts=args.slice(1);
+                opts.element=element;
+                
+                value = UiComeback[method].apply(UiComeback, opts);
 
                 if (indexOf(args[0], valueMethods) >= 0
                     || (indexOf(args[0], propertyMethods) && args.length == 1)) {
