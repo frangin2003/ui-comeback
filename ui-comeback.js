@@ -34,8 +34,8 @@
 
         tXAndtYs : function(args) {
             args = $.extend(args, $.fn.uiComeback.defaults);
-            var duration = args.duration, offset = $(this).offset().top - $(this).next().offset().top;
-            $(this).velocity({
+            var duration = args.duration, offset = args.element.offset().top - args.element.next().offset().top;
+            args.element.velocity({
                 p: {translateX: $(this).width() + "px", opacity: 0},
                 o: { duration: duration, visibility: "hidden",
                     complete: args.complete } }).nextAll().each(function() {
@@ -48,8 +48,8 @@
 
         scaleAndtYs : function(args) {
             args = $.extend(args, $.fn.uiComeback.defaults);
-            var duration = args.duration, offset = $(this).offset().top - $(this).next().offset().top;
-            $(this).velocity({
+            var duration = args.duration, offset = args.element.offset().top - args.element.next().offset().top;
+            args.element.velocity({
                 p: {scaleX: 0, scaleY: 0, opacity: 0},
                 o: { duration: duration, visibility: "hidden",
                     complete: args.complete } }).nextAll().each(function() {
@@ -68,6 +68,8 @@
             method, value,
             allowedMethods = [
                 "tXAndtYs", "scaleAndtYs"];
+                
+        args.element = $(this);
 
         this.each(function () {
             if (typeof(args[0]) === "string") {
