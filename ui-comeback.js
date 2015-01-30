@@ -1,6 +1,7 @@
-$(function() {
+$(function($) {
+    "use strict";
   
-  var comeback = function() {
+    $.comeback = function() {
       this.tXAndtYs = function(selector, duration, callback) {
     var $selector = $(selector);
     var offset = $selector.offset().top - $selector.next().offset().top;
