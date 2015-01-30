@@ -83,7 +83,7 @@
                 opts=args.slice(1);
                 opts.element=element;
                 
-                value = UiComeback[method].apply(UiComeback, opts);
+                value = window.UiComeback[method].apply(window.UiComeback, opts);
 
                 if (indexOf(args[0], valueMethods) >= 0
                     || (indexOf(args[0], propertyMethods) && args.length == 1)) {
