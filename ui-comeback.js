@@ -67,10 +67,7 @@
             opts,
             uiComeback, method, value,
             allowedMethods = [
-                "val", "destroy", "opened", "open", "close", "focus", 
-                "isFocused", "container", "dropdown", "onSortStart", "onSortEnd", 
-                "enable", "disable", "readonly", "positionDropdown", 
-                "data", "search"];
+                "tXAndtYs", "scaleAndtYs"];
 
         this.each(function () {
             if (typeof(args[0]) === "string") {
