@@ -34,9 +34,10 @@
 
         tXAndtYs : function(args) {
             args = $.extend(args, $.fn.uiComeback.defaults);
-            var duration = args.duration, offset = args.element.offset().top - args.element.next().offset().top;
-            args.element.velocity({
-                p: {translateX: $(this).width() + "px", opacity: 0},
+            var $this = args.element;
+            var duration = args.duration, offset = $this.offset().top - args.element.next().offset().top;
+            $this.velocity({
+                p: {translateX: $this.width() + "px", opacity: 0},
                 o: { duration: duration, visibility: "hidden",
                     complete: args.complete } }).nextAll().each(function() {
                     $(this).velocity({
@@ -49,7 +50,8 @@
         scaleAndtYs : function(args) {
             args = $.extend(args, $.fn.uiComeback.defaults);
             var duration = args.duration, offset = args.element.offset().top - args.element.next().offset().top;
-            args.element.velocity({
+            var $this = args.element;
+            $this.velocity({
                 p: {scaleX: 0, scaleY: 0, opacity: 0},
                 o: { duration: duration, visibility: "hidden",
                     complete: args.complete } }).nextAll().each(function() {
